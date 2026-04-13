@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Raise New Ticket - TickFix</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='tickfix.css') }}" rel="stylesheet">
+    <script defer src="{{ url_for('static', filename='tickfix.js') }}"></script>
+</head>
+<body>
+    <div class="tickfix-shell">
+        <nav class="tickfix-nav">
+            <div class="container py-3 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <div class="tickfix-logo-mark">
+                        <span>Tf</span>
+                    </div>
+                    <div>
+                        <div class="tickfix-nav-title">TickFix</div>
+                        <div class="small text-muted" style="color:#9ca3af !important; font-size: 0.7rem;">Raise a new ticket</div>
+                    </div>
+                </div>
+                <div class="d-none d-md-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-sm btn-outline-light" data-theme-toggle aria-pressed="false">Dark mode</button>
+                    <a href="/customer/dashboard" class="btn btn-outline-light btn-sm">Back to dashboard</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="tickfix-main">
+            <div class="container tickfix-main-inner">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 col-md-9">
+                        <div class="tickfix-card">
+                            <h2 class="mb-3">Raise a new support ticket</h2>
+                            <p class="text-muted" style="color:#9ca3af !important; font-size:0.85rem;">
+                                Describe your issue in as much detail as possible so our agents can resolve it quickly.
+                            </p>
+
+                            <form method="POST" class="mt-3">
+                                <div class="mb-3">
+                                    <label class="form-label">Issue description</label>
+                                    <textarea name="issue_description" class="form-control" rows="5" required placeholder="Describe your issue in detail..."></textarea>
+                                    <div class="form-text" style="font-size:0.8rem; color:#9ca3af;">
+                                        <strong>Auto-priority:</strong> Priority will be automatically set to
+                                        <span class="badge bg-danger">Urgent</span> or
+                                        <span class="badge bg-success">Normal</span> based on your description.
+                                        <br><small class="text-muted" style="color:#6b7280 !important;">Payment and refund related issues (payment, billing, refund, charges) are automatically set to <strong>Urgent</strong>. All other issues are set to <strong>Normal</strong>.</small>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary mt-2">Submit ticket</button>
+                            </form>
+
+                            <div class="mt-3">
+                                <a href="/customer/dashboard" class="tickfix-muted-link">Back to my tickets</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

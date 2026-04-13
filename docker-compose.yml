@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - FLASK_APP=app.py
+      - FLASK_ENV=development
+      - SECRET_KEY=your-secret-key-here
+      - DATABASE_URI=sqlite:////app/instance/resolvex.db
+    command: sh -c "python init_db.py && flask run --host=0.0.0.0"
+    
+  # Uncomment this section if you want to use PostgreSQL instead of SQLite
+  # db:
+  #   image: postgres:13
+  #   environment:
+  #     - POSTGRES_DB=resolvex
+  #     - POSTGRES_USER=postgres
+  #     - POSTGRES_PASSWORD=postgres
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data/
+
+# volumes:
+#   postgres_data:

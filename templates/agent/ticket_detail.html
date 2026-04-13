@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Detail - TickFix</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='tickfix.css') }}" rel="stylesheet">
+    <script defer src="{{ url_for('static', filename='tickfix.js') }}"></script>
+</head>
+<body>
+    <div class="tickfix-shell">
+        <nav class="tickfix-nav">
+            <div class="container py-3 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center">
+                    <div class="tickfix-logo-mark">
+                        <span>Tf</span>
+                    </div>
+                    <div>
+                        <div class="tickfix-nav-title">TickFix</div>
+                        <div class="small text-muted" style="color:#9ca3af !important; font-size: 0.7rem;">Ticket detail</div>
+                    </div>
+                </div>
+                <div class="d-none d-md-flex align-items-center gap-2">
+                    <button type="button" class="btn btn-sm btn-outline-light" data-theme-toggle aria-pressed="false">Dark mode</button>
+                    <a href="{{ url_for('agent_dashboard') }}" class="btn btn-outline-light btn-sm">Back to dashboard</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="tickfix-main">
+            <div class="container tickfix-main-inner">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-md-10">
+                        <div class="tickfix-card">
+                            <h2 class="mb-3">Ticket #{{ ticket.ticket_id }}</h2>
+                            <div class="mb-3" style="font-size:0.9rem; color:#9ca3af;">
+                                <span class="me-3"><strong>Priority:</strong> {{ ticket.priority }}</span>
+                                <span><strong>Status:</strong> {{ ticket.status }}</span>
+                            </div>
+
+                            <h4 class="mt-3">Customer details</h4>
+                            <p><strong>Name:</strong> {{ customer.name }}</p>
+                            <p><strong>Unique ID:</strong> {{ customer.unique_id }}</p>
+                            <p><strong>Address:</strong> {{ customer.address }}</p>
+                            <p><strong>Phone:</strong> {{ customer.phone }}</p>
+                            <p><strong>Email:</strong> {{ customer.email }}</p>
+
+                            <h4 class="mt-4">Issue</h4>
+                            <p>{{ ticket.issue_description }}</p>
+
+                            <form method="POST" action="{{ url_for('resolve_ticket', ticket_id=ticket.ticket_id) }}" class="mt-4">
+                                <button type="submit" class="btn btn-primary">Mark as resolved &amp; pick next</button>
+                            </form>
+
+                            <div class="mt-3">
+                                <a href="{{ url_for('agent_dashboard') }}" class="tickfix-muted-link">Back to dashboard</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

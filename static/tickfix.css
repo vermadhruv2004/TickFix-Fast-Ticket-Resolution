@@ -1,0 +1,410 @@
+ :root {
+    --tickfix-bg: #020617;
+    --tickfix-bg-elevated: rgba(15, 23, 42, 0.96);
+    --tickfix-bg-elevated-soft: rgba(15, 23, 42, 0.9);
+    --tickfix-text: #f9fafb;
+    --tickfix-muted: #9ca3af;
+    --tickfix-border: rgba(148, 163, 184, 0.4);
+    --tickfix-accent: #6366f1;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    color: var(--tickfix-text);
+    background-color: var(--tickfix-bg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: background-color 0.35s ease, color 0.35s ease, background-image 0.5s ease;
+}
+
+body.tickfix-theme-dark {
+    --tickfix-bg: #020617;
+    --tickfix-bg-elevated: rgba(15, 23, 42, 0.96);
+    --tickfix-bg-elevated-soft: rgba(15, 23, 42, 0.9);
+    --tickfix-text: #f9fafb;
+    --tickfix-muted: #9ca3af;
+    --tickfix-border: rgba(148, 163, 184, 0.4);
+    --tickfix-accent: #6366f1;
+    background-image:
+        radial-gradient(circle at top left, rgba(13, 110, 253, 0.85) 0, rgba(5, 8, 22, 0.97) 40%, rgba(2, 6, 23, 1) 100%),
+        url('https://img.freepik.com/free-vector/abstract-background-with-pink-purple-flowing-lines-design_1048-20364.jpg?semt=ais_incoming&w=740&q=80');
+}
+
+body.tickfix-theme-light {
+    --tickfix-bg: #f9fafb;
+    --tickfix-bg-elevated: #ffffff;
+    --tickfix-bg-elevated-soft: #f3f4f6;
+    --tickfix-text: #020617;
+    --tickfix-muted: #6b7280;
+    --tickfix-border: rgba(148, 163, 184, 0.5);
+    --tickfix-accent: #4f46e5;
+    background-image: linear-gradient(180deg, #f9fafb 0%, #e5e7eb 60%, #e5e7eb 100%);
+}
+
+.tickfix-shell {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.tickfix-nav {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.25);
+    backdrop-filter: blur(16px);
+    background: linear-gradient(to right, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.78));
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.75);
+}
+
+.tickfix-logo-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: radial-gradient(circle at 30% 30%, #e5f1ff, #6366f1 40%, #020617 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.5);
+    margin-right: 0.75rem;
+}
+
+.tickfix-logo-mark span {
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.tickfix-nav-title {
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    color: #e2e8f0;
+}
+
+.tickfix-badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    color: var(--tickfix-muted);
+}
+
+.tickfix-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+}
+
+.tickfix-hero {
+    max-width: 960px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2.7fr);
+    gap: 3rem;
+}
+
+@media (max-width: 992px) {
+    .tickfix-hero {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+.tickfix-hero h1 {
+    font-size: clamp(2.4rem, 3vw, 2.9rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: 1rem;
+}
+
+.tickfix-hero h1 span {
+    background: linear-gradient(to right, #38bdf8, #6366f1, #a855f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.tickfix-lead {
+    font-size: 0.98rem;
+    color: #cbd5f5;
+    max-width: 30rem;
+}
+
+.tickfix-cta {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    max-width: 420px;
+}
+
+.tickfix-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.tickfix-cta .btn {
+    flex: 1 1 180px;
+    border-radius: 999px;
+    font-weight: 500;
+    padding-block: 0.7rem;
+}
+
+.tickfix-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    color: #94a3b8;
+}
+
+.tickfix-meta-item strong {
+    color: #e2e8f0;
+}
+
+.tickfix-panel {
+    background: radial-gradient(circle at top, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.98));
+    border-radius: 1.25rem;
+    padding: 1.75rem 1.5rem;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.tickfix-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(56, 189, 248, 0.16), transparent 55%);
+    pointer-events: none;
+}
+
+.tickfix-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.tickfix-pill {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid rgba(148, 163, 184, 0.4);
+    color: #cbd5f5;
+}
+
+.tickfix-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.tickfix-metric-card {
+    background: rgba(15, 23, 42, 0.9);
+    border-radius: 0.9rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(51, 65, 85, 0.9);
+}
+
+.tickfix-metric-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #94a3b8;
+}
+
+.tickfix-metric-value {
+    margin-top: 0.1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #e2e8f0;
+}
+
+.tickfix-status-list {
+    margin-top: 1.1rem;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    color: #94a3b8;
+}
+
+.tickfix-status-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.tickfix-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: #22c55e;
+    box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.2);
+}
+
+.tickfix-footnote {
+    margin-top: 1.4rem;
+    font-size: 0.72rem;
+    color: #64748b;
+}
+
+/* Generic inner layout for dashboards/forms */
+.tickfix-main-inner {
+    padding: 2.5rem 1.5rem;
+}
+
+.tickfix-card {
+    background: var(--tickfix-bg-elevated);
+    border-radius: 1rem;
+    padding: 1.75rem 1.5rem;
+    border: 1px solid rgba(51, 65, 85, 0.9);
+    box-shadow: 0 22px 50px rgba(15, 23, 42, 0.8);
+}
+
+.tickfix-card h2,
+.tickfix-card h3,
+.tickfix-card h4 {
+    color: var(--tickfix-text);
+}
+
+.tickfix-card .form-label,
+.tickfix-card label {
+    font-size: 0.85rem;
+    color: #cbd5f5;
+}
+
+.tickfix-card .form-control,
+.tickfix-card textarea,
+.tickfix-card input {
+    background: var(--tickfix-bg-elevated-soft);
+    border-color: rgba(51, 65, 85, 0.9);
+    color: var(--tickfix-text);
+}
+
+.tickfix-card .form-control:focus,
+.tickfix-card textarea:focus,
+.tickfix-card input:focus {
+    border-color: var(--tickfix-accent);
+    box-shadow: 0 0 0 1px rgba(99, 102, 241, 0.35);
+}
+
+.tickfix-table-wrapper {
+    margin-top: 1.5rem;
+}
+
+.tickfix-table-wrapper table {
+    color: var(--tickfix-text);
+    border-color: rgba(51, 65, 85, 0.9);
+}
+
+.tickfix-table-wrapper thead {
+    background: rgba(15, 23, 42, 0.9);
+}
+
+.tickfix-table-wrapper tbody tr:nth-child(even) {
+    background: rgba(15, 23, 42, 0.7);
+}
+
+.tickfix-table-wrapper tbody tr:nth-child(odd) {
+    background: rgba(15, 23, 42, 0.5);
+}
+
+.tickfix-table-wrapper th,
+.tickfix-table-wrapper td {
+    border-color: rgba(51, 65, 85, 0.9) !important;
+}
+
+.tickfix-muted-link {
+    color: var(--tickfix-muted);
+    font-size: 0.85rem;
+}
+
+.tickfix-muted-link:hover {
+    color: var(--tickfix-text);
+}
+
+/* Light theme refinements */
+body.tickfix-theme-light .tickfix-nav {
+    background: rgba(15, 23, 42, 0.96);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, 0.45);
+}
+
+body.tickfix-theme-light .tickfix-card {
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+}
+
+body.tickfix-theme-light .tickfix-table-wrapper tbody tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+body.tickfix-theme-light .tickfix-table-wrapper tbody tr:nth-child(odd) {
+    background: #eef2ff;
+}
+
+/* Micro-interactions & animations */
+.tickfix-card,
+.tickfix-nav,
+.tickfix-logo-mark,
+.btn,
+.tickfix-muted-link {
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+.tickfix-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 26px 60px rgba(15, 23, 42, 0.9);
+}
+
+.tickfix-logo-mark:hover {
+    transform: translateY(-1px) scale(1.04);
+    box-shadow: 0 16px 40px rgba(79, 70, 229, 0.85);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #2563eb, #4f46e5);
+    border-color: transparent;
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.55);
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 16px 40px rgba(37, 99, 235, 0.75);
+}
+
+.btn-outline-light:hover {
+    transform: translateY(-1px);
+}
+
+@keyframes tickfix-float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-6px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.tickfix-panel {
+    animation: tickfix-float 18s ease-in-out infinite;
+}
